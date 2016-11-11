@@ -13,7 +13,7 @@ import { AppRegistry, Text,
 class TestInput extends Component {
     render() {
         return (
-            <View style={{backgroundColor:'#f4f4f4',flex:1,justifyContent: 'center',marginTop:150}}>
+            <View style={{backgroundColor:'#f4f4f4',flex:1,justifyContent: 'center'}}>
                 <Image
                     style={styles.style_image}
                     source={require('./img/app_icon.png')}/>
