@@ -3,11 +3,12 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+    TouchableHighlight,
 } from 'react-native';
 
 // 第二页, 点击跳出返回第一页
-class SecondPage extends Component {
+class Test extends Component {
   render() {
     return (
         <View style={styles.container}>
@@ -16,13 +17,13 @@ class SecondPage extends Component {
               第二页: {this.props.name}
             </Text>
           </View>
-          <TouchableOpacity
+          <TouchableHighlight
               style={styles.button}
               onPress={()=>this.props.navigator.pop()}>
             <Text style={styles.buttonText}>
               返回上一页
             </Text>
-          </TouchableOpacity>
+          </TouchableHighlight>
         </View>
     );
   }
@@ -47,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('AwesomeProject', () => SecondPage);
+module.exports = Test;

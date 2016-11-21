@@ -18,6 +18,7 @@ import { AppRegistry, Text,
 
 var _navigator;
 var Login = require('./login.js');
+var Test = require('./test.js');
 
 var AwesomeProject = React.createClass({
 
@@ -44,11 +45,11 @@ var AwesomeProject = React.createClass({
                     <TouchableOpacity onPress={() => _navigator.push({title:'ViewPager',id:'viewpager'})} style={ styles.button }>
                         <Text>ViewPager</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => _navigator.push({title:'UserInfoView',id:'userinfo'})} style={ styles.button }>
-                        <Text>Userinfo</Text>
+                    <TouchableOpacity onPress={() => _navigator.push({title:'Test',id:'test'})} style={ styles.button }>
+                        <Text>Test</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => _navigator.push({title:'Login',id:'login'})} style={ styles.button }>
-                        <Text>login</Text>
+                        <Text>Login</Text>
                     </TouchableOpacity>
                 </View>
             );
@@ -70,9 +71,9 @@ var AwesomeProject = React.createClass({
                 <ViewPager navigator={navigator} route={route}/>
             );
         }
-        if(route.id === 'userinfo'){
+        if(route.id === 'test'){
             return (
-                <UserInfoView navigator={navigator} route={route}/>
+                <Test navigator={navigator} route={route}/>
             );
         }
         if(route.id === 'login'){

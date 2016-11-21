@@ -12,7 +12,9 @@ import { AppRegistry, Text,
     Navigator,
 } from 'react-native';
 
+
 class Login extends Component {
+
     render() {
         return (
 
@@ -40,32 +42,36 @@ class Login extends Component {
                     secureTextEntry={false}
                     textAlign='center'
                 />
-                <View
-                    style={styles.style_view_commit}
-                >
 
                     <TouchableHighlight
                         //按下后背景透明度变化
                         activeOpacity={0.7}
                         //按下后背景颜色
                         underlayColor={'red'}
-                        onPress={ () => _navigator.push({title:'Http',id:'http'}) }>
+                        style={styles.style_view_commit}
+                        onPress={ () => this.props.navigator.push({title:'Test',id:'test'})}>
 
                         <Text style={{color:'#fff'}}>
                             登录
                         </Text>
                     </TouchableHighlight>
 
-
-                </View>
-
                 <View style={{flex:1,flexDirection:'row',alignItems: 'flex-end',bottom:10}}>
                     <Text style={styles.style_view_unlogin}>
                         无法登录?
                     </Text>
+                    <TouchableHighlight
+                        //按下后背景透明度变化
+                        activeOpacity={0.7}
+                        //按下后背景颜色
+                        underlayColor={'blue'}
+                        style={styles.style_view_new}
+                        onPress={()=>this.props.navigator.pop()}
+                    >
                     <Text style={styles.style_view_register}>
                         新用户
                     </Text>
+                    </TouchableHighlight>
                 </View>
             </View>
         );
@@ -113,7 +119,14 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection:'row',
         textAlign:'right',
-    }
+    },
+
+    style_view_new:{
+        marginRight:10,
+        alignItems:'flex-end',
+        flex:1,
+        flexDirection:'row',
+    },
 });
 
 
