@@ -1,10 +1,6 @@
 /**
  * Created by wangc on 2016/11/11.
  */
-/**
- * Sample React Native App
- * https://github.com/hanks-zyh
- */
 
 import React, { Component } from 'react';
 import { AppRegistry, Text,
@@ -19,6 +15,7 @@ import { AppRegistry, Text,
 var _navigator;
 var Login = require('./login.js');
 var Test = require('./test.js');
+var Flex = require('./flextest.js');
 
 var AwesomeProject = React.createClass({
 
@@ -36,11 +33,8 @@ var AwesomeProject = React.createClass({
         if(route.id === 'main'){
             return (
                 <View>
-                    <TouchableOpacity onPress={ () => _navigator.push({title:'Http',id:'http'}) }  style={ styles.button }>
-                        <Text>NetWork</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => _navigator.push({title:'Shop',id:'shop'})} style={ styles.button }>
-                        <Text>SHOP</Text>
+                    <TouchableOpacity onPress={() => _navigator.push({title:'Flex',id:'flex'})} style={ styles.button }>
+                        <Text>布局</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => _navigator.push({title:'ViewPager',id:'viewpager'})} style={ styles.button }>
                         <Text>ViewPager</Text>
@@ -55,15 +49,9 @@ var AwesomeProject = React.createClass({
             );
         }
 
-        if(route.id === 'http'){
+        if(route.id === 'flex'){
             return (
-                <HttpView navigator={navigator} route={route} />
-            );
-        }
-
-        if(route.id === 'shop'){
-            return (
-                <ShopView navigator={navigator} route={route}/>
+                <Flex navigator={navigator} route={route}/>
             );
         }
         if(route.id === 'viewpager'){
@@ -84,7 +72,7 @@ var AwesomeProject = React.createClass({
 
 
     },
-    render: function(){
+    render(){
         var renderScene = this.renderSceneAndroid;
         var configureScence = this.configureScenceAndroid;
         return (
