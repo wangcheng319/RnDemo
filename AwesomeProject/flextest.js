@@ -26,7 +26,7 @@ class Flex extends Component {
                     underlayColor={'blue'}
                     onPress={()=>this.props.navigator.pop()}
                 >
-                    <Text style={{borderWidth:2,backgroundColor:'hotpink',padding:20,width:100}}>
+                    <Text style={{borderWidth:2,backgroundColor:'hotpink',padding:20,justifyContent:'center',alignItems:'center'}}>
                         返回
                     </Text>
                 </TouchableHighlight>

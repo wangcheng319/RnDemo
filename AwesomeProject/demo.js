@@ -10,12 +10,16 @@ import { AppRegistry, Text,
     TextInput,
     TouchableOpacity,
     Navigator,
+    ScrollView,
 } from 'react-native';
 
 var _navigator;
 var Login = require('./login.js');
 var Test = require('./test.js');
 var Flex = require('./flextest.js');
+var TextDemo = require('./text.js');
+
+import ScrollViewTest from './scrollviewtest.js';
 
 var AwesomeProject = React.createClass({
 
@@ -32,9 +36,22 @@ var AwesomeProject = React.createClass({
         _navigator = navigator;
         if(route.id === 'main'){
             return (
+                <ScrollView>
                 <View>
                     <TouchableOpacity onPress={() => _navigator.push({title:'Flex',id:'flex'})} style={ styles.button }>
                         <Text>布局</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => _navigator.push({title:'TextDemo',id:'text'})} style={ styles.button }>
+                        <Text>Text熟悉</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => _navigator.push({title:'ScrollViewTest',id:'scrollview'})} style={ styles.button }>
+                        <Text>ScrollView</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => _navigator.push({title:'TextDemo',id:'text'})} style={ styles.button }>
+                        <Text>动画</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => _navigator.push({title:'TextDemo',id:'text'})} style={ styles.button }>
+                        <Text>ListView</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => _navigator.push({title:'ViewPager',id:'viewpager'})} style={ styles.button }>
                         <Text>ViewPager</Text>
@@ -46,6 +63,7 @@ var AwesomeProject = React.createClass({
                         <Text>Login</Text>
                     </TouchableOpacity>
                 </View>
+                </ScrollView>
             );
         }
 
@@ -54,6 +72,19 @@ var AwesomeProject = React.createClass({
                 <Flex navigator={navigator} route={route}/>
             );
         }
+
+        if(route.id === 'text'){
+            return (
+                <TextDemo navigator={navigator} route={route}/>
+            );
+        }
+
+        if(route.id === 'scrollview'){
+            return (
+                <ScrollViewTest navigator={navigator} route={route}/>
+            );
+        }
+
         if(route.id === 'viewpager'){
             return (
                 <ViewPager navigator={navigator} route={route}/>
