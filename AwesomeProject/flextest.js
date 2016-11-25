@@ -14,6 +14,23 @@ import {
 
 
 class Flex extends Component {
+    // 构造
+      constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {
+            isShow:true,
+            isToast:true,
+            textValue:'one',
+        };
+      }
+
+      showBox1(){
+            <View style={{backgroundColor:'red',width:100,height:100}}>
+                <Text>this is box1</Text>
+            </View>
+      }
+
 
     render() {
         return (
@@ -31,13 +48,15 @@ class Flex extends Component {
                     </Text>
                 </TouchableHighlight>
 
-
                 <Text>
                     等分
                 </Text>
+
+                { this.showBox1()}
+
                 <View style={styles.style_line1}>
 
-                    <Text style={styles.style_line1_item1}></Text>
+                    <Text style={styles.style_line1_item1}>{this.state.textValue}</Text>
 
                     <Text style={styles.style_line1_item2}></Text>
 
@@ -86,10 +105,7 @@ class Flex extends Component {
                 </View>
 
 
-
                 <Text style={{fontSize:18,color:'darkorchid'}}>总结：margin和padding基本和android一样，flex类似android中的权重</Text>
-
-
 
             </View>
         );

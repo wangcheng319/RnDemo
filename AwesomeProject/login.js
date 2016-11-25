@@ -49,7 +49,7 @@ class Login extends Component {
                         //按下后背景颜色
                         underlayColor={'red'}
                         style={styles.style_view_commit}
-                        onPress={ () => this.props.navigator.push({title:'Test',id:'test'})}>
+                        onPress={ () => this.toggleStatus()}>
 
                         <Text style={{color:'#fff'}}>
                             登录
@@ -68,9 +68,11 @@ class Login extends Component {
                         style={styles.style_view_new}
                         onPress={()=>this.props.navigator.pop()}
                     >
-                    <Text style={styles.style_view_register}>
-                        新用户
-                    </Text>
+
+                        <Text style={styles.style_view_register}
+                        >
+                            新用户
+                        </Text>
                     </TouchableHighlight>
                 </View>
             </View>

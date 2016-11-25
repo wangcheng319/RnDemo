@@ -13,7 +13,7 @@ import {
     ScrollView,
 } from 'react-native';
 
-  class  scrollViewtest extends  Component{
+  export  default  class  scrollViewtest extends  Component{
 
     render(){
         return(
@@ -120,4 +120,4 @@ const styles = StyleSheet.create({
     },
 })
 
-module.exports  = scrollViewtest;
+// module.exports  = scrollViewtest;
