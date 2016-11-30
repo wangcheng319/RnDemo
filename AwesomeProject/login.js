@@ -31,6 +31,9 @@ class Login extends Component {
       }
 
       _getValue(){
+
+          this.setState({isShow:false})
+
           let name = this.state.username;
           let pd = this.state.passwd;
           let i = this.state.isShow;
@@ -45,7 +48,16 @@ class Login extends Component {
           }
 
 
+      }
 
+      renderNew(){
+          if (this.state.isShow){
+              return(
+                  <Text style={{justifyContent:'center',alignItems:'center'}}>
+                      我显示出来了
+                  </Text>
+              );
+          }
       }
 
 
@@ -65,7 +77,7 @@ class Login extends Component {
                     autoFocus={false}
                     underlineColorAndroid={'transparent'}
                     textAlign='center'
-                    onChangeText = {(val)=>this.setState({username: val,isShow:false})}
+                    onChangeText = {(val)=>this.setState({username: val})}
                     value={ this.state.username }
                 />
                 <View
@@ -113,7 +125,7 @@ class Login extends Component {
                         </Text>
 
                     </TouchableHighlight>
-
+                    {this.renderNew()}
 
                 </View>
             </View>
