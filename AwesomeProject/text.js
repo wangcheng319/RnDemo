@@ -14,6 +14,17 @@ import { AppRegistry, Text,
 
 class TextDemo extends  Component{
 
+    // 构造
+      constructor(props) {
+        super(props);
+        // 初始状态
+        this.state = {};
+      }
+
+      rightPress(){
+
+      }
+
     render(){
         return(
             <View>
@@ -25,6 +36,7 @@ class TextDemo extends  Component{
                     underlayColor={'blue'}
                     style={styles.style_back}
                     onPress={()=>this.props.navigator.pop()}
+
                 >
                     <Text style={styles.style_back_text}>
                         返回

@@ -27,12 +27,12 @@ var AwesomeProject = React.createClass({
         return {};
     },
 
-    configureScenceAndroid: function(){
+    configureScenceAndroid(){
         return Navigator.SceneConfigs.FadeAndroid;
     },
 
 
-    renderSceneAndroid: function(route, navigator){
+    renderSceneAndroid(route, navigator){
         _navigator = navigator;
         if(route.id === 'main'){
             return (
