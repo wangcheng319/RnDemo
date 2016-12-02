@@ -3,30 +3,16 @@
  */
 
 import React, { Component } from 'react';
-import { AppRegistry, Text,
-    StyleSheet,
-    Image,
-    View,
-    TextInput,
-    TouchableOpacity,
+import {
     Navigator,
-    ScrollView,
 } from 'react-native';
 
-var _navigator;
-var Login = require('./login.js');
-var Test = require('./test.js');
-var Flex = require('./flextest.js');
-var TextDemo = require('./text.js');
-var Info = require('./personal_info.js');
 
-
-
-import ScrollViewTest from './scrollviewtest.js';
+import Main from './main';
 
 var AwesomeProject = React.createClass({
 
-    getInitialState: function(){
+    getInitialState(){
         return {};
     },
 
@@ -34,109 +20,22 @@ var AwesomeProject = React.createClass({
         return Navigator.SceneConfigs.FloatFromLeft;
     },
 
-
-    renderSceneAndroid(route, navigator){
-        _navigator = navigator;
-        if(route.id === 'main'){
-            return (
-                <ScrollView>
-                <View>
-                    <TouchableOpacity onPress={() => _navigator.push({title:'Flex',id:'flex'})} style={ styles.button }>
-                        <Text>布局</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => _navigator.push({title:'TextDemo',id:'text'})} style={ styles.button }>
-                        <Text>Text熟悉</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => _navigator.push({title:'ScrollViewTest',id:'scrollview'})} style={ styles.button }>
-                        <Text>ScrollView</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => _navigator.push({title:'TextDemo',id:'text'})} style={ styles.button }>
-                        <Text>动画</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => _navigator.push({title:'TextDemo',id:'text'})} style={ styles.button }>
-                        <Text>ListView</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => _navigator.push({title:'ViewPager',id:'viewpager'})} style={ styles.button }>
-                        <Text>ViewPager</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => _navigator.push({title:'Test',id:'test'})} style={ styles.button }>
-                        <Text>Test</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => _navigator.push({title:'Login',id:'login'})} style={ styles.button }>
-                        <Text>Login</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => _navigator.push({title:'Info',id:'info'})} style={ styles.button }>
-                        <Text>Info</Text>//DrawerLayoutAndroid
-                    </TouchableOpacity>
-                </View>
-                </ScrollView>
-            );
-        }
-
-        if(route.id === 'flex'){
-            return (
-                <Flex navigator={navigator} route={route}/>
-            );
-        }
-
-        if(route.id === 'text'){
-            return (
-                <TextDemo navigator={navigator} route={route}/>
-            );
-        }
-
-        if(route.id === 'scrollview'){
-            return (
-                <ScrollViewTest navigator={navigator} route={route}/>
-            );
-        }
-
-        if(route.id === 'viewpager'){
-            return (
-                <ViewPager navigator={navigator} route={route}/>
-            );
-        }
-        if(route.id === 'test'){
-            return (
-                <Test navigator={navigator} route={route}/>
-            );
-        }
-        if(route.id === 'login'){
-            return (
-                <Login navigator={navigator} route={route}/>
-            );
-        }
-
-        if(route.id === 'info'){
-            return (
-                <Info navigator={navigator} route={route}/>
-            );
-        }
-
-
-    },
     render(){
-        var renderScene = this.renderSceneAndroid;
         var configureScence = this.configureScenceAndroid;
         return (
             <Navigator
                 debugOverlay={false}
-                initialRoute={{ title: 'Main', id:'main'}}
-                configureScence={{ configureScence }}
-                renderScene={renderScene}
+                initialRoute={{ name: 'Main', component:Main}}//初始界面
+                configureScence={{ configureScence }}//转场动画
+                renderScene={(route, navigator) => {
+                    let Component = route.component;
+                    if(route.component){
+                        return <Component  {...route.params} navigator={navigator} />//跳转到目标界面，这里把navigator传过去，所以在子页面中可以直接根据this.props.navigator获取
+                    }
+                }}
             />
         );
     }
-});
-
-var styles = StyleSheet.create({
-    button:{
-        height:56,
-        margin:10,
-        backgroundColor:'#cad6c5',
-        justifyContent:'center',
-        alignItems:'center',
-    },
 });
 
 module.exports = AwesomeProject

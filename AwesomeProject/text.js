@@ -12,7 +12,7 @@ import { AppRegistry, Text,
     Navigator,
 } from 'react-native';
 
-class TextDemo extends  Component{
+export  default class TextDemo extends  Component{
 
     // 构造
       constructor(props) {

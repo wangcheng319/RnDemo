@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 // 第二页, 点击跳出返回第一页
-class Test extends Component {
+export  default class Test extends Component {
   render() {
     return (
         <View style={styles.container}>

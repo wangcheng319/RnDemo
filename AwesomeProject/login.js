@@ -16,10 +16,10 @@ import {
     ToastAndroid,
 } from 'react-native';
 
-import PresonalInfo from './personal_info';
+import Info from './personal_info';
 
 
-class Login extends Component {
+export  default class Login extends Component {
 
     // 构造
       constructor(props) {
@@ -54,7 +54,15 @@ class Login extends Component {
 
       //跳转到个人中心
         _toPersonalInfo(){
-            this.props.navigator.push({title:'Info',id:'info'})
+            // this.props.navigator.push({title:'Info',id:'info'})
+            this.props.navigator.push({
+                name:'info',
+                component:Info,
+                params:{
+                    user:this.state.username,
+                    pwd:this.state.passwd
+                }
+            })
         }
 
 

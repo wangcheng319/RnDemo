@@ -19,19 +19,37 @@ import {
 
 } from 'react-native';
 
- class  Info extends Component{
+ export  default  class  Info extends Component{
      // 构造
        constructor(props) {
          super(props);
          // 初始状态
-         this.state = {};
+         this.state = {
+              name:'',
+              wd:'',
+         };
        }
+
+     componentDidMount() {
+         this.setState({
+             name:this.props.user,
+             wd:this.props.pwd,
+
+         })
+     }
 
 
     render() {
         var navigationView = (
             <View style={{backgroundColor: '#fff',justifyContent:'center',alignItems:'center',flex:1,flexDirection:'row'}}>
-                <Text>个人中心</Text>
+
+
+                <View style={{marginTop:16}}>
+                <Text >姓名:{this.state.name}</Text>
+
+                <Text >密码:{this.state.wd}</Text>
+
+                </View>
             </View>
         );
 
@@ -51,13 +69,20 @@ import {
                             HELLO
                         </Text>
 
+                        <Text>{this.state.name}</Text>
+
 
                     </View>
 
                 </DrawerLayoutAndroid>
         );
-
     }
 }
+
+const  styles = StyleSheet.create({
+
+
+
+});
 
 module.exports = Info;

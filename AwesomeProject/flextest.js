@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 
 
-class Flex extends Component {
+export  default  class Flex extends Component {
     // 构造
       constructor(props) {
         super(props);
@@ -218,4 +218,3 @@ const styles = StyleSheet.create({
 });
 
 
-module.exports = Flex;
