@@ -18,6 +18,9 @@ var Login = require('./login.js');
 var Test = require('./test.js');
 var Flex = require('./flextest.js');
 var TextDemo = require('./text.js');
+var Info = require('./personal_info.js');
+
+
 
 import ScrollViewTest from './scrollviewtest.js';
 
@@ -28,7 +31,7 @@ var AwesomeProject = React.createClass({
     },
 
     configureScenceAndroid(){
-        return Navigator.SceneConfigs.FadeAndroid;
+        return Navigator.SceneConfigs.FloatFromLeft;
     },
 
 
@@ -61,6 +64,9 @@ var AwesomeProject = React.createClass({
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => _navigator.push({title:'Login',id:'login'})} style={ styles.button }>
                         <Text>Login</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => _navigator.push({title:'Info',id:'info'})} style={ styles.button }>
+                        <Text>Info</Text>//DrawerLayoutAndroid
                     </TouchableOpacity>
                 </View>
                 </ScrollView>
@@ -98,6 +104,12 @@ var AwesomeProject = React.createClass({
         if(route.id === 'login'){
             return (
                 <Login navigator={navigator} route={route}/>
+            );
+        }
+
+        if(route.id === 'info'){
+            return (
+                <Info navigator={navigator} route={route}/>
             );
         }
 

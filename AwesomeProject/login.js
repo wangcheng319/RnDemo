@@ -16,6 +16,8 @@ import {
     ToastAndroid,
 } from 'react-native';
 
+import PresonalInfo from './personal_info';
+
 
 class Login extends Component {
 
@@ -30,6 +32,7 @@ class Login extends Component {
         };
       }
 
+      //获取输入的用户名 密码
       _getValue(){
 
           this.setState({isShow:false})
@@ -47,8 +50,13 @@ class Login extends Component {
               ToastAndroid.show("0",1000);
           }
 
-
       }
+
+      //跳转到个人中心
+        _toPersonalInfo(){
+            this.props.navigator.push({title:'Info',id:'info'})
+        }
+
 
       renderNew(){
           if (this.state.isShow){
@@ -101,7 +109,7 @@ class Login extends Component {
                     //按下后背景颜色
                     underlayColor={'red'}
                     style={styles.style_view_commit}
-                    onPress={()=>this._getValue()}>
+                    onPress={()=>this._toPersonalInfo()}>
 
                     <Text style={{color: '#fff'}}>
                         登录
