@@ -30,9 +30,9 @@ import {
          };
        }
 
-     componentDidMount() {
+     componentDidMount() {//组件已经加载完成
          this.setState({
-             name:this.props.user,
+             name:this.props.user,//获取重上个页面传递过来的值
              wd:this.props.pwd,
 
          })
@@ -42,13 +42,19 @@ import {
     render() {
         var navigationView = (
             <View style={{backgroundColor: '#fff',justifyContent:'center',alignItems:'center',flex:1,flexDirection:'row'}}>
-
-
                 <View style={{marginTop:16}}>
-                <Text >姓名:{this.state.name}</Text>
+                <Text style={{backgroundColor:'#fff666'}}>姓名:{this.state.name}</Text>
 
-                <Text >密码:{this.state.wd}</Text>
+                        <TouchableHighlight
+                            //按下后背景透明度变化
+                            activeOpacity={0.7}
+                            //按下后背景颜色
+                            underlayColor={'red'}
 
+                            onPress={()=>ToastAndroid.show(this.state.wd,1000)}>
+
+                            <Text >密码:{this.state.wd}</Text>
+                        </TouchableHighlight>
                 </View>
             </View>
         );
@@ -56,22 +62,12 @@ import {
         return (
                 //DrawerLayoutAndroid必须是顶层布局
                 <DrawerLayoutAndroid
-                    drawerWidth={150}
+                    drawerWidth={300}
                     drawerPosition={DrawerLayoutAndroid.positions.left}
                     renderNavigationView={() => navigationView}
                 >
                     <View style={{justifyContent:'center',alignItems:'center',flex:1,flexDirection:'row'}}>
-                        <Text>
-                            hahahhahahah
-                        </Text>
-
-                        <Text>
-                            HELLO
-                        </Text>
-
                         <Text>{this.state.name}</Text>
-
-
                     </View>
 
                 </DrawerLayoutAndroid>

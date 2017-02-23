@@ -1,18 +1,16 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Created by wangc on 2016/12/2.
+ *
+ * 登录注册页面
  */
 import React, {Component} from 'react';
 import {
-    AppRegistry, Text,
+    Text,
     StyleSheet,
     Image,
     View,
     TextInput,
     TouchableHighlight,
-    Navigator,
-    console,
-    Alert,
     ToastAndroid,
 } from 'react-native';
 
@@ -41,7 +39,6 @@ export  default class Login extends Component {
           let pd = this.state.passwd;
           let i = this.state.isShow;
 
-
           ToastAndroid.show(name,1000);
           ToastAndroid.show(pd,1000);
           if (i){
@@ -49,12 +46,10 @@ export  default class Login extends Component {
           }else {
               ToastAndroid.show("0",1000);
           }
-
       }
 
       //跳转到个人中心
         _toPersonalInfo(){
-            // this.props.navigator.push({title:'Info',id:'info'})
             this.props.navigator.push({
                 name:'info',
                 component:Info,
@@ -69,8 +64,8 @@ export  default class Login extends Component {
       renderNew(){
           if (this.state.isShow){
               return(
-                  <Text style={{justifyContent:'center',alignItems:'center'}}>
-                      我显示出来了
+                  <Text style={styles.style_view_register}>
+                     注册
                   </Text>
               );
           }
