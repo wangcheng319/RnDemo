@@ -89,7 +89,6 @@ export  default class Login extends Component {
                     underlineColorAndroid={'transparent'}
                     textAlign='center'
                     onChangeText = {(val)=>this.setState({username: val})}
-                    value={ this.state.username }
                 />
                 <View
                     style={{height: 1, backgroundColor: '#f4f4f4'}}

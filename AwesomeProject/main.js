@@ -4,13 +4,9 @@
 
 
 import React, { Component } from 'react';
-import { AppRegistry, Text,
+import { Text,
     StyleSheet,
-    Image,
     View,
-    TextInput,
-    TouchableHighlight,
-    Navigator,
     ScrollView,
     TouchableOpacity,
 } from 'react-native';
@@ -21,6 +17,8 @@ import Flex from './flextest.js';
 import TextDemo from './text.js';
 import Info from './personal_info.js';
 import ScrollViewTest from './scrollviewtest.js';
+import viewPagerDemo from  './viewpagerandroid.js';
+import Anim from './anim';
 
 var _navigator;
 
@@ -54,7 +52,7 @@ export  default class Main extends  Component{
                         <TouchableOpacity onPress={() => _navigator.push({name:'TextDemo',component:TextDemo})} style={ styles.button }>
                             <Text>ListView</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => _navigator.push({name:'ViewPager',component:TextDemo})} style={ styles.button }>
+                        <TouchableOpacity onPress={() => _navigator.push({name:'ViewPager',component:viewPagerDemo})} style={ styles.button }>
                             <Text>ViewPager</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => _navigator.push({name:'Test',component:TextDemo})} style={ styles.button }>
@@ -66,9 +64,11 @@ export  default class Main extends  Component{
                         <TouchableOpacity onPress={() => _navigator.push({name:'Info',component:Info})} style={ styles.button }>
                             <Text>Info</Text>
                         </TouchableOpacity>
+                        <TouchableOpacity onPress={() => _navigator.push({name:'Anim',component:Anim})} style={ styles.button }>
+                            <Text>Anim</Text>
+                        </TouchableOpacity>
                     </View>
                 </ScrollView>
-
             </View>
         );
     }

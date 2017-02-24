@@ -55,6 +55,8 @@ import {
 
                             <Text >密码:{this.state.wd}</Text>
                         </TouchableHighlight>
+
+
                 </View>
             </View>
         );
@@ -66,9 +68,16 @@ import {
                     drawerPosition={DrawerLayoutAndroid.positions.left}
                     renderNavigationView={() => navigationView}
                 >
-                    <View style={{justifyContent:'center',alignItems:'center',flex:1,flexDirection:'row'}}>
-                        <Text>{this.state.name}</Text>
-                    </View>
+                    <ViewPagerAndroid
+
+                        initialPage={0}>
+                        <View style={styles.pageStyle}>
+                            <Text>First page</Text>
+                        </View>
+                        <View style={styles.pageStyle}>
+                            <Text>Second page</Text>
+                        </View>
+                    </ViewPagerAndroid>
 
                 </DrawerLayoutAndroid>
         );
@@ -77,7 +86,10 @@ import {
 
 const  styles = StyleSheet.create({
 
-
+    pageStyle: {
+        alignItems: 'center',
+        padding: 20,
+    }
 
 });
 
