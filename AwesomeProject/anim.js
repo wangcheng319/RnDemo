@@ -9,12 +9,24 @@ import {
     TouchableHighlight,
     StyleSheet,
     ToastAndroid,
+    Animated,
 } from 'react-native';
 
 export default  class Anim extends  Component{
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            fadeAnim: new Animated.Value(0), //设置初始值
+        };
+    }
+
     toRight(){
         ToastAndroid.show("toright",1000)
+        Animated.timing(
+            this.state.fadeAnim,//初始值
+            {toValue: 1}//结束值
+        ).start();//开始
     }
 
     render(){
@@ -35,13 +47,13 @@ export default  class Anim extends  Component{
                 onPress={()=>this.toRight()}
             >
                 <Text>
-                    向右移动
+                    渐变显示
                 </Text>
             </TouchableHighlight>
+                /*opacity设置控件的透明度*/
+                <Animated.View style={{backgroundColor:"red",width:40,height:30,marginLeft:50,opacity: this.state.fadeAnim}}>
 
-                <View style={{backgroundColor:"red",width:40,height:30,marginLeft:50}}>
-
-                </View>
+                </Animated.View>
 
             </View>
 
